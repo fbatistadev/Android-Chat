@@ -112,6 +112,7 @@ fun PrimaryTextField(
                 modifier = Modifier
                     .padding(start = 16.dp),
                 color = ColorError,
+                style = MaterialTheme.typography.labelMedium
             )
         }
     }
@@ -125,9 +126,24 @@ private fun PrimaryTextFieldPreview() {
         PrimaryTextField(
             value = "",
             onValueChange = {},
-            placeholder = "Digite sua senha",
+            placeholder = "E-mail",
+            leadingIcon = R.drawable.ic_envelope,
+            keyboardType = KeyboardType.Email,
+        )
+    }
+}
+
+@Preview
+@Composable
+private fun PrimaryTextFieldErrorPreview() {
+    AndroidChatTheme {
+        PrimaryTextField(
+            value = "",
+            onValueChange = {},
+            placeholder = "E-mail",
             leadingIcon = R.drawable.ic_envelope,
             keyboardType = KeyboardType.Password,
+            errorMessage = "E-mail inválido",
         )
     }
 }
