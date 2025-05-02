@@ -37,7 +37,9 @@ import com.example.androidchat.ui.theme.BackgroundGradient
 
 @Composable
 fun SignInRoute(
-    viewModel: SignInViewModel = viewModel(),
+    viewModel: SignInViewModel = viewModel {
+        SignInViewModel(SignInFormValidator())
+    },
     navigateToSignUp: () -> Unit
 ) {
     val formState = viewModel.formState
