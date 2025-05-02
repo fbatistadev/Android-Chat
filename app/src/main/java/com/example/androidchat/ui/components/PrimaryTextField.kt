@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.androidchat.R
+import com.example.androidchat.ui.extension.getVisualTransformationForPassword
 import com.example.androidchat.ui.theme.AndroidChatTheme
 import com.example.androidchat.ui.theme.ColorError
 
@@ -83,10 +84,7 @@ fun PrimaryTextField(
                     )
                 }
             },
-            visualTransformation = when {
-                keyboardType == KeyboardType.Password && !passwordVisible -> PasswordVisualTransformation()
-                else -> VisualTransformation.None
-            },
+            visualTransformation = keyboardType.getVisualTransformationForPassword(passwordVisible),
             keyboardOptions = KeyboardOptions(
                 keyboardType = keyboardType,
                 imeAction = imeAction
